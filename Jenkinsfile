@@ -6,7 +6,7 @@ pipeline{
   stages{
     stage("clone"){
       steps{
-        git clone 'https://github.com/logicaldoc/document-management-software.git logicaldoc-communit'
+        git clone 'https://github.com/Marija999/document-management-software.git'
       }
       
     }
