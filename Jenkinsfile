@@ -7,7 +7,8 @@ pipeline{
     stage("clone"){
       steps{
         git clone 'https://github.com/logicaldoc/document-management-software.git logicaldoc-communit'
-          }
+      }
+    
       
     }
     stage("build"){
@@ -17,7 +18,7 @@ pipeline{
         expression{
           BRANCH_NAME=="master" && CODE_CHANGES==true
         }
-      }
+    }
       steps{
       }
     }
@@ -32,5 +33,5 @@ pipeline{
        failure{//kada je build neuspesan 
          mail to : milicm@comtrade.com , subject = 'The pipeline failed'
        }
-//  }
+  }
 }
