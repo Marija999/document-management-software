@@ -32,9 +32,13 @@ pipeline{
       }
     }
   }
-  //post{ 
-    //failure{ //kada je build neuspesan 
-         //mail to : milicm@comtrade.com , subject = 'The pipeline failed'
-    //}
-  //}
+  post{ 
+    failure{ 
+      mail bcc: '', body: 'I am sorry, try your best again!', cc: 'stasar@comtrade.com anadjj2comtrade.com', from: '', replyTo: '', subject: 'Build Failed', to: 'milicm@comtrade.com'   
+    }
+    success
+    {
+      mail bcc: '', body: 'Bravo!', cc: 'stasar@comtrade.com anadjj2comtrade.com', from: '', replyTo: '', subject: 'Build Successful', to: 'milicm@comtrade.com'
+    }
+  }
 }
