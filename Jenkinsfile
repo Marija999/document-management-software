@@ -25,9 +25,9 @@ pipeline{
     stage("deploy"){
     }
   }
-  post{ 
-    failure{ //kada je build neuspesan 
-         mail to : milicm@comtrade.com , subject = 'The pipeline failed'
-    }
-  }
+  //post{ 
+    //failure{ //kada je build neuspesan 
+         //mail to : milicm@comtrade.com , subject = 'The pipeline failed'
+    //}
+  //}
 }
