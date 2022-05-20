@@ -32,13 +32,13 @@ pipeline{
       }
     }
   }
-  post{ 
-    failure{ 
-      mail bcc: '', body: 'I am sorry, try your best again!', cc: 'stasar@comtrade.com', from: '', replyTo: '', subject: 'Build Failed', to: 'milicm@comtrade.com'   
-    }
-    success
-    {
-      mail bcc: '', body: 'Bravo!', cc: 'stasar@comtrade.com', from: '', replyTo: '', subject: 'Build Successful', to: 'milicm@comtrade.com'
-    }
-  }
+  //post{ 
+   // failure{ 
+    //  mail bcc: '', body: 'I am sorry, try your best again!', cc: 'stasar@comtrade.com', from: '', replyTo: '', subject: 'Build Failed', to: 'milicm@comtrade.com'   
+   // }
+    //success
+    //{
+     // mail bcc: '', body: 'Bravo!', cc: 'stasar@comtrade.com', from: '', replyTo: '', subject: 'Build Successful', to: 'milicm@comtrade.com'
+   // }
+  //}
 }
