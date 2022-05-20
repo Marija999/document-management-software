@@ -8,7 +8,6 @@ pipeline{
       steps{
         git clone 'https://github.com/logicaldoc/document-management-software.git logicaldoc-communit'
       }
-    
       
     }
     stage("build"){
@@ -20,6 +19,7 @@ pipeline{
       when{
         expression{
           BRANCH_NAME=="master" && CODE_CHANGES==true
+        }
       }
       steps{
         echo 'Testing the app'
