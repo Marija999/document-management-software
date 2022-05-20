@@ -28,7 +28,7 @@ pipeline{
     }
     stage("deploy"){
       steps{
-        echo 'Deploying the app'
+        echo 'Deploying the app with webhook'
       }
     }
   }
