@@ -12,6 +12,8 @@ pipeline{
       
     }
     stage("build"){
+      steps{
+      }
     }
     stage("test"){
       when{
@@ -23,6 +25,8 @@ pipeline{
       }
     }
     stage("deploy"){
+      steps{
+      }
     }
   }
   //post{ 
