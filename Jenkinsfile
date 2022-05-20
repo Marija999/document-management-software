@@ -13,7 +13,7 @@ pipeline{
     }
     stage("build"){
       steps{
-        echo 'Building the app'
+        echo 'Building the app-with webhook'
       }
     }
     stage("test"){
