@@ -6,7 +6,8 @@ pipeline{
   stages{
     stage("clone"){
       steps{
-        git clone 'https://github.com/Marija999/document-management-software.git'
+        //git clone 'https://github.com/Marija999/document-management-software.git'
+        echo 'Clone repo'
       }
       
     }
