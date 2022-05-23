@@ -20,10 +20,7 @@ ENV DB_URL=""
 
 RUN mkdir -p home/LogicalDOC
 COPY . home/LogicalDOC
-//COPY logicaldoc.sh llkjj/LogicalDOC
-//COPY auto-install.j2 /LogicalDOC
-//COPY wait-for-it.sh /
-//COPY wait-for-postgres.sh /
+
 
 # Install the Tesseract OCR
 RUN apt update
@@ -67,6 +64,7 @@ RUN sed -i 's/<\/policymap>/  <policy domain=\"coder\" rights=\"read|write\" pat
 # Install j2cli for the transformation of the templates (Jinja2)
 RUN pip install j2cli
 
+COPY . .
 # Volumes for persistent storage
 VOLUME /LogicalDOC/conf
 VOLUME /LogicalDOC/repository
