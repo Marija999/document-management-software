@@ -1,11 +1,6 @@
 pipeline {
     agent any
-    environment{
-        dockerImage=''
-        registry='milicm/logical_doc'
-        registryCredential='dockerhub_id'
-        
-    }
+    
     tools {
         maven "maven"
     }
@@ -25,16 +20,7 @@ pipeline {
                 echo 'skip!'
             }
         }
-        //stage ('Build docker'){
-           // steps{
-              //script{
-                   // sh 'apt-get install -y docker.io'
-                    //sh 'groupadd docker'
-                   // sh 'sudo usermod -aG docker $USER'
-                   
-              //  }
-           // }
-      //  }
+        
         stage ('Build Docker image'){
             steps{
                 script {
