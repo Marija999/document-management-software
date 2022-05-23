@@ -25,13 +25,23 @@ pipeline {
                 echo 'skip!'
             }
         }
+        stage ('Build docker'){
+            steps{
+                script{
+                    sh 'apt install docker.io'
+                    sh 'groupadd docker'
+                    sh 'sudo usermod -aG docker $USER'
+                   
+                }
+            }
+        }
         stage ('Build Docker image'){
             steps{
                 script {
-                    //sh 'docker build -t milicm/logical_doc:1.0 .'
+                    sh 'docker build -t milicm/logical_doc:1.0 .'
                     //dockerImage = docker.build registry
-                    def customImage = docker.build("milicm/logical_doc:${env.BUILD_ID}")
-                    customImage.push()
+                    //def customImage = docker.build("milicm/logical_doc:${env.BUILD_ID}")
+                    //customImage.push()
                 }
             }
         }
