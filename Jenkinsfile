@@ -29,7 +29,9 @@ pipeline {
             steps{
                 script {
                     //sh 'docker build -t milicm/logical_doc:1.0 .'
-                    dockerImage = docker.build registry
+                    //dockerImage = docker.build registry
+                    def customImage = docker.build("milicm/logical_doc:${env.BUILD_ID}")
+                    customImage.push()
                 }
             }
         }
