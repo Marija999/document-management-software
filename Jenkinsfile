@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    environment{
+        dockerImage=''
+        registry='milicm/logical_doc'
+        registryCredential='dockerhub_id'
+        
+    }
     tools {
         maven "maven"
     }
@@ -22,7 +28,8 @@ pipeline {
         stage ('Build Docker image'){
             steps{
                 script {
-                    sh 'docker build -t milicm/logical_doc:1.0 .'
+                    //sh 'docker build -t milicm/logical_doc:1.0 .'
+                    dockerImage = docker.build registry
                 }
             }
         }
