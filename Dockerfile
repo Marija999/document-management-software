@@ -1,4 +1,4 @@
-FROM openjdk:11-jdk
+FROM node
 
 MAINTAINER LogicalDOC <packagers@logicaldoc.com>
 
@@ -18,11 +18,12 @@ ENV DB_MANUALURL="false"
 ENV DB_URL=""
 
 
-RUN mkdir /LogicalDOC
-COPY logicaldoc.sh /LogicalDOC
-COPY auto-install.j2 /LogicalDOC
-COPY wait-for-it.sh /
-COPY wait-for-postgres.sh /
+RUN mkdir -p home/LogicalDOC
+COPY . home/LogicalDOC
+//COPY logicaldoc.sh llkjj/LogicalDOC
+//COPY auto-install.j2 /LogicalDOC
+//COPY wait-for-it.sh /
+//COPY wait-for-postgres.sh /
 
 # Install the Tesseract OCR
 RUN apt update
@@ -72,4 +73,4 @@ VOLUME /LogicalDOC/repository
 
 EXPOSE 8080
 
-CMD ["/LogicalDOC/logicaldoc.sh", "run"]
+CMD ["node", "run"]
