@@ -22,7 +22,7 @@ pipeline {
         stage ('Build Docker image'){
             steps{
                 script {
-                    sh 'docker build -t milicm/logical_doc:v1 .'
+                    sh 'docker build -t milicm/logical_doc:1.0 .'
                 }
             }
         }
