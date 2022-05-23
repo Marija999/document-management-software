@@ -22,7 +22,7 @@ pipeline {
         stage ('Build Docker image'){
             steps{
                 script {
-                    sh 'docker build -t milicm/milicm/logical_doc:tagname .'
+                    sh 'docker build -t milicm/logical_doc:tagname'
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'dockerhubpw', variable: 'dockerhubpwd')]) {
                         sh 'docker push -u milicm -p ${dockerhubpwd}'
-                        sh 'docker push milicm/milicm/logical_doc:tagname'
+                        sh 'docker push milicm/logical_doc:tagname'
                     }
                 }
             }
