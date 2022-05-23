@@ -31,7 +31,7 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'dockerhubpw', variable: 'dockerhubpwd')]) {
                         sh 'docker push -u milicm -p ${dockerhubpwd}'
-                        sh 'docker push milicm/logical_doc:tagname'
+                        sh 'docker push milicm/logical_doc:v1'
                     }
                 }
             }
