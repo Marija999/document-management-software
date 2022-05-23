@@ -28,7 +28,7 @@ pipeline {
         stage ('Build docker'){
             steps{
                 script{
-                    sh 'apt install docker.io'
+                    sh 'apt install -y docker.io'
                     sh 'groupadd docker'
                     sh 'sudo usermod -aG docker $USER'
                    
