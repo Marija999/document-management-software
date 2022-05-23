@@ -1,44 +1,13 @@
-//CODE_CHANGES= getGitChanges()
-pipeline{
-  agent any
-  //environment{sve komande koje napisemo ovde mogu da se koriste kroz ceo kod
-  //}
-  stages{
-    stage("clone"){
-      steps{
-        //git clone 'https://github.com/Marija999/document-management-software.git'
-        echo 'Clone repo'
-      }
-      
+node {
+
+    checkout scm
+
+    docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
+
+        def customImage = docker.build("milicm/logical_doc")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
     }
-    stage("build"){
-      steps{
-        echo 'Building the app-with webhook'
-      }
-    }
-    stage("test"){
-      //when{
-        //expression{
-          //BRANCH_NAME=="master" && CODE_CHANGES==true
-        //}
-      //}
-      steps{
-        echo 'Testing the app'
-      }
-    }
-    stage("deploy"){
-      steps{
-        echo 'Deploying the app with webhook'
-      }
-    }
-  }
-  //post{ 
-   // failure{ 
-    //  mail bcc: '', body: 'I am sorry, try your best again!', cc: 'stasar@comtrade.com', from: '', replyTo: '', subject: 'Build Failed', to: 'milicm@comtrade.com'   
-   // }
-    //success
-    //{
-     // mail bcc: '', body: 'Bravo!', cc: 'stasar@comtrade.com', from: '', replyTo: '', subject: 'Build Successful', to: 'milicm@comtrade.com'
-   // }
-  //}
 }
+
