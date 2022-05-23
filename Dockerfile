@@ -3,7 +3,7 @@ FROM node
 MAINTAINER LogicalDOC <packagers@logicaldoc.com>
 
 # set default variables for LogicalDOC install
-ENV LDOC_VERSION="8.8"
+ENV LDOC_VERSION="8.7.4"
 ENV LDOC_MEMORY="3000"
 ENV LDOC_USERNO=""
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -55,8 +55,8 @@ RUN apt-get -y install \
 # Download and unzip LogicalDOC installer 
 RUN curl -L https://s3.amazonaws.com/logicaldoc-dist/logicaldoc/installers/logicaldoc-installer-${LDOC_VERSION}.zip \
     -o /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip && \
-    unzip /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip -d /LogicalDOC #&& \
-    # rm /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip
+    unzip /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip -d /LogicalDOC && \
+    rm /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip
 
 # Fix the security policies of ImageMagick
 RUN sed -i 's/<\/policymap>/  <policy domain=\"coder\" rights=\"read|write\" pattern=\"PDF\" \/><\/policymap>/' /etc/ImageMagick-6/policy.xml
