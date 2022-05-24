@@ -1,4 +1,4 @@
-FROM node
+FROM logicaldoc/logicaldoc:lts
 
 MAINTAINER LogicalDOC <packagers@logicaldoc.com>
 
@@ -71,4 +71,4 @@ VOLUME /LogicalDOC/repository
 
 EXPOSE 8080
 
-CMD ["node", "run"]
+CMD ["/LogicalDOC/logicaldoc.sh", "run"]
