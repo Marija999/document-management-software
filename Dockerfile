@@ -50,11 +50,12 @@ RUN apt-get -y install \
     clamav \
     libfreetype6 \
     libreoffice \
-    apt-utils
+    apt-utils \
+    wget
 
 # Download and unzip LogicalDOC installer 
 
-RUN echo "y" | curl -L https://s3.amazonaws.com/logicaldoc-dist/logicaldoc/installers/logicaldoc-installer-${LDOC_VERSION}.zip \
+RUN echo "y" | wget -L https://s3.amazonaws.com/logicaldoc-dist/logicaldoc/installers/logicaldoc-installer-${LDOC_VERSION}.zip \
     -o /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip && \
     unzip /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip -d /LogicalDOC && \
     rm /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip
