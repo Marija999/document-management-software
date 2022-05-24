@@ -54,6 +54,7 @@ RUN apt-get -y install \
 
 # Download and unzip LogicalDOC installer 
 RUN curl -L https://s3.amazonaws.com/logicaldoc-dist/logicaldoc/installers/logicaldoc-installer-${LDOC_VERSION}.zip \
+RUN echo "y" \
     -o /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip && \
     unzip /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip -d /LogicalDOC && \
     rm /LogicalDOC/logicaldoc-installer-${LDOC_VERSION}.zip
