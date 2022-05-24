@@ -1,4 +1,4 @@
-FROM logicaldoc:lts
+FROM logicaldoc/logicaldoc
 
 MAINTAINER LogicalDOC <packagers@logicaldoc.com>
 
